@@ -1,0 +1,118 @@
+.grid-breaker {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-breaker .cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  opacity: 0.85;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-breaker .cell[data-condition="full"] {
+  background: linear-gradient(to bottom, #00a3ff, #1a3a4a);
+}
+
+.grid-breaker .cell[data-condition="half"] {
+  background: linear-gradient(to bottom, #a0aec0, #2d3748);
+}
+
+.grid-breaker .cell[data-condition="fail"] {
+  background: linear-gradient(to bottom, #ff4d4d, #7f1d1d);
+}
+
+.grid-breaker .cell[data-condition="empty"] {
+  background: transparent;
+}
+
+.grid-breaker .cell[data-condition="empty"] * {
+  display: none;
+}
+
+.grid-breaker .piece-icon {
+  width: 100%;
+  height: 100%;
+  padding: 25%;
+}
+
+.grid-breaker .piece-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-breaker .corner-marks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content min-content;
+  grid-template-columns: min-content min-content;
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 0.25rem;
+  opacity: 0.3;
+}
+
+.grid-breaker .corner-marks img {
+  max-width: none;
+}
+
+.grid-breaker .glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  opacity: 0.2;
+  animation: breaker-glow 1s infinite;
+}
+
+.grid-breaker .cell[data-highlighted="true"] .glow {
+  background: white;
+  cursor: pointer;
+}
+
+.grid-breaker .cell[data-highlighted="true"] {
+  cursor: pointer;
+}
+
+.grid-breaker .combo-notice {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.grid-breaker .combo-notice span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #34d399;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+  opacity: 0;
+}
+
+.grid-breaker .backdrop-pattern {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.03;
+}
+
+@keyframes breaker-glow {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0.2; }
+}

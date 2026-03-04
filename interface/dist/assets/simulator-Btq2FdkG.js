@@ -1,0 +1,1 @@
+import{e as i}from"./index-pc2uXYPP.js";function a(){i.simulate([{action:"setVisible",data:!0},{action:"navigateMinigame",data:"lockpick"},{action:"playMinigame",data:{title:"Lockpick",levels:3,timer:30}}],200)}export{a as initSimulator};
