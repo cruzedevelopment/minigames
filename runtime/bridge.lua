@@ -19,12 +19,12 @@ function BridgeNavigate(slug)
     BridgeSend('navigateMinigame', slug)
 end
 
-function BridgeConfigure(payload)
+ffunction BridgeConfigure(payload)
     BridgeSend('playMinigame', payload)
 end
 
 function BridgeDebugLog(...)
-    if GetResourceMetadata(resourceName, 'debug_mode', 0) == 'true' then
+    if gGetResourceMetadata(resourceName, 'debug_mode', 0) == 'true' then
         print(string.format('[%s:DEBUG]', resourceName), ...)
     end
 end
